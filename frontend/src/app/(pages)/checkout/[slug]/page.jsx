@@ -73,8 +73,33 @@ const Page = () => {
                 </div>
 
                 {/* Column 2: Empty Space / Preview */}
-                <div className='border-l border-gray-800 p-4'>
+                <div className='border-l border-gray-800 p-6'>
+                    <div className='text-white flex items-center' >
+                        {/* items  */}
+                        <ul>
+                            <li className='flex items-center justify-between gap-2 w-100  p-4' >
+                                <div className='leading-5 flex items-center gap-5'>
+                                    <div className='w-20 h-20 rounded-md relative overflow-hidden'>
+                                        <Image src={"/assets/asset 110.png"} alt='img' fill /></div>
+                                    <div>
+                                        <p className='text-lg '> white pants </p>
+                                        <span className='text-sm'>purple/M</span>
+                                    </div>
+                                    
+                                </div>
+                                 <p>₹ 999</p>
+                            </li>
 
+                        </ul>
+                    </div>
+                    <div className=''>
+                    <ul>
+                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
+                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
+                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
+                    </ul>
+                     
+                    </div>
                 </div>
             </div>
         </section>
