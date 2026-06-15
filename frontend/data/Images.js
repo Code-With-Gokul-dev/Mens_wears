@@ -1,31 +1,37 @@
 export const CarouselData = [
   {
-    image: "/Carousel/chinese-colar.png",
+    id: 1,
+    url: "/Carousel/chinese-colar.png",
     name: "chinnese-colar",
     link: ""
   },
   {
-    image: "/Carousel/stripe-shirt.png",
+    id: 2,
+    url: "/Carousel/stripe-shirt.png",
     name: "stripe-shirt",
     link: ""
   },
   {
-    image: "/Carousel/elbow-patch.png",
+    id: 3,
+    url: "/Carousel/elbow-patch.png",
     name: "elbow-patch",
     link: ""
   },
   {
-    image: "/Carousel/gurkha-pant.png",
+    id: 4,
+    url: "/Carousel/gurkha-pant.png",
     name: "gurkha-pant",
     link: ""
   },
   {
-    image: "/Carousel/linen-pant.png",
+    id: 5,
+    url: "/Carousel/linen-pant.png",
     name: "linen-pant.png",
     link: ""
   },
   {
-    image: "/Carousel/barrel-jeans.png",
+    id: 6,
+    url: "/Carousel/barrel-jeans.png",
     name: "barrel-jeans",
     link: ""
   },

@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Black striped Shirt ",
+    "category": "shirt",
+    "img": "https://i.postimg.cc/76HNx5w3/asset-0.jpg",
+    "preview_img": [
+      "https://i.postimg.cc/76HNx5w3/asset-0.jpg",
+      "https://i.postimg.cc/Hsc9sDDf/asset-11.jpg"
+    ],
+    "price": 1200,
+    "offer_price": 999
+  },
+  {
+    "title": "Brown foral Shirt ",
+    "category": "shirt",
+    "img": "https://i.postimg.cc/PxbY8Tf7/asset-242.jpg",
+    "preview_img": [
+      "https://i.postimg.cc/PxbY8Tf7/asset-242.jpg",
+      "https://i.postimg.cc/V69nbms3/asset-243.jpg",
+      "https://i.postimg.cc/4dWQnXxb/asset-3.jpg"
+    ],
+    "price": 1087,
+    "offer_price": 799
+  },
+  {
+    "title": "Grey striped Shirt ",
+    "category": "shirt",
+    "img": "https://i.postimg.cc/WzKm6Sr7/asset-1.png",
+    "preview_img": [
+      "https://i.postimg.cc/WzKm6Sr7/asset-1.png",
+      "https://i.postimg.cc/7ZX3KxSF/asset-12.png",
+      "https://i.postimg.cc/T3wsq2sS/gray-stripe-shirt.png"
+    ],
+    "price": 1127,
+    "offer_price": 799
+  },
+  {
+    "title": "White elbow patch Shirt ",
+    "category": "shirt",
+    "img": "https://i.postimg.cc/PxXMtCTv/asset-2.jpg",
+    "preview_img": [
+      "https://i.postimg.cc/PxXMtCTv/asset-2.jpg",
+      "https://i.postimg.cc/Jzj3ZNht/asset-13.jpg",
+      "https://i.postimg.cc/XNKNtxv4/white-elbow-patch-shirt-(2).jpg",
+      "https://i.postimg.cc/XNKNtxv4/white-elbow-patch-shirt-(2).jpg"
+    ],
+    "price": 1127,
+    "offer_price": 799
+  }
+]

@@ -2,10 +2,11 @@
 
 import { Search, ShoppingBag, User2 } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
+import { useCart } from '../../context/cartContext' 
 
 const BottomBar = () => {
   const [isVisible, setIsVisible] = useState(false)
-
+  const { openCart } = useCart();
   useEffect(() => {
     const handleScroll = () => {
      
@@ -37,7 +38,7 @@ const BottomBar = () => {
       </button>
 
       {/* Cart Icon */}
-      <button aria-label="Shopping Cart" className='relative w-7 h-7 flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 ease-in-out'>
+      <button onClick={openCart} aria-label="Shopping Cart" className='relative w-7 h-7 flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 ease-in-out'>
         <span className='absolute -right-2 -top-2 bg-red-600 font-sans font-bold rounded-full w-5 h-5 flex items-center justify-center text-[10px] text-white animate-pulse'>
           2
         </span>
