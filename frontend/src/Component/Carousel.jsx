@@ -31,9 +31,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
   }, [isHovered, duration]);
   return (
     <div className="w-full lg:px-10 sm:p-4 p-2">
-      <h2 className="text-2xl mb-4 sr-only">
-        Autoplay Carousel (Hover to Pause)
-      </h2>
+      
       <div className="flex flex-col gap-3">
         <div
           className="relative overflow-hidden rounded-lg"
@@ -46,7 +44,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
               <div key={item.id} className="shrink-0 w-full h-150 relative">
                 <Image fill
                   src={item.url}
-                  alt={item.title}
+                  alt={item.title || "img"}
                   className="w-full h-full  rounded-lg select-none pointer-events-none"
                   draggable={false}
                 />

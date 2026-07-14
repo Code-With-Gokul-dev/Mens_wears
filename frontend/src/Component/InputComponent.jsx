@@ -4,7 +4,7 @@ const InputComponent = ({ register, errors, inputName }) => {
 
     return (
         <div className='flex flex-col'>
-            <div className=' text-white rounded-md rounded-b-none overflow-hidden'>
+            <div className=' text-black font-caveat font-medium bg-white rounded-md rounded-b-none overflow-hidden'>
                 <input
                     type="text"
                     className='p-2 w-full outline-none border-b-2 border-gray-600 '

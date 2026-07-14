@@ -79,7 +79,7 @@ const Footer = () => {
               placeholder='Enter your email'
               className='outline-none w-full bg-transparent font-sans text-gray-900 placeholder:text-gray-400 text-sm py-3 px-4 '
             />
-            <button type="submit" aria-label="Subscribe" className='text-gray-600 hover:bg-blue-500 hover:text-white transition-transform duration-300 ease-in-out group-hover:text-black group-hover:translate-x-1 pl-2 py-3 px-4 '>
+            <button type="submit" aria-label="Subscribe" className='text-gray-600 hover:bg-yellow-400 hover:text-white transition-transform duration-300 ease-in-out group-hover:text-black group-hover:translate-x-1 pl-2 py-3 px-4 '>
               <MoveRight size={20} />
             </button>
           </form>

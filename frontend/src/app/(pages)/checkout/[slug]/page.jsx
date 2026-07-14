@@ -65,7 +65,7 @@ const Page = () => {
                         <button
                             type="submit"
                             disabled={!isValid}
-                            className='mt-4 bg-white text-black font-semibold font-bricolage py-2 px-4 rounded-md disabled:bg-gray-600 disabled:cursor-not-allowed transition-all hover:cursor-pointer'
+                            className='mt-4 bg-white hover:bg-gray-200 text-black font-semibold font-bricolage py-2 px-4 rounded-md disabled:bg-gray-400 disabled:cursor-not-allowed transition-all hover:cursor-pointer'
                         >
                             Pay Now
                         </button>
@@ -74,10 +74,11 @@ const Page = () => {
 
                 {/* Column 2: Empty Space / Preview */}
                 <div className='border-l border-gray-800 p-6'>
-                    <div className='text-white flex items-center' >
+                    <div className='text-gray-950 flex overflow-y-scroll overflow-x-hidden scrollbar-thumb-black h-100 bg-white  w-full min-w-xl rounded-t-2xl' >
                         {/* items  */}
                         <ul>
-                            <li className='flex items-center justify-between gap-2 w-100  p-4' >
+                           { [2,4].map((h)=>(
+                            <li key={h} className='flex items-center cursor-pointer hover:bg-gray-100 justify-between gap-2  w-full min-w-xl p-4' >
                                 <div className='leading-5 flex items-center gap-5'>
                                     <div className='w-20 h-20 rounded-md relative overflow-hidden'>
                                         <Image src={"/assets/asset 110.png"} alt='img' fill /></div>
@@ -85,20 +86,21 @@ const Page = () => {
                                         <p className='text-lg '> white pants </p>
                                         <span className='text-sm'>purple/M</span>
                                     </div>
-                                    
+
                                 </div>
-                                 <p>₹ 999</p>
+                                <p className='text-lg font-semibold font-bricolage '>₹ 999</p>
                             </li>
+                            ))}
 
                         </ul>
                     </div>
-                    <div className=''>
-                    <ul>
-                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
-                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
-                         <li> <p>subtotal  . <span>{2}items </span>  </p></li>
-                    </ul>
-                     
+                    <div className='p-10 sticky top-10 flex bg-amber-300  min-w-xl rounded-b-xl w-full'>
+                        <ul className='w-full text-lg font-semibold font-bricolage'>
+                            <li className='flex gap-5 justify-between'> <p>subtotal - <span>{2} items </span>  </p> <p>₹ {999}</p></li>
+                            <li className='flex gap-5 justify-between' > <p>Shipping fee  </p> <p>Free</p> </li>
+                            <li className='flex gap-5 justify-between'> <p>Total - <span>{2} items </span>  </p> <span>₹ {1999}</span></li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
