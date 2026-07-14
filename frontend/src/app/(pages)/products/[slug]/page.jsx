@@ -1,6 +1,7 @@
 'use client'
-import ProductCarousel from '@/app/Component/Card-component/ProductCarousel'
-import { BoxIcon, MinusIcon, PlusIcon, User2Icon } from 'lucide-react'
+import ProductCarousel from '../../../../Component/Card-component/ProductCarousel'
+import QuantityCounter from '@/Component/QuantityCounter'
+import { BoxIcon,  User2Icon } from 'lucide-react'
 import React, { useState } from 'react'
 import { CiDeliveryTruck } from 'react-icons/ci'
 
@@ -18,11 +19,6 @@ const Page = () => {
 
     const [selectedColor, setSelectedColor] = useState('blue')
     const [selectedSize, setSelectedSize] = useState('M')
-    const [quantity, setQuantity] = useState(1)
-
-
-    const decreaseQty = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))
-    const increaseQty = () => setQuantity((prev) => prev + 1)
 
     return (
         <section className='min-h-screen bg-black text-white'>
@@ -31,16 +27,16 @@ const Page = () => {
                 <ProductCarousel selectedColor={selectedColor} />
 
                 {/* Product Details */}
-                <div className='space-y-8 px-3'>
+                <div className='space-y-8 px-3 max-w-xl mx-auto w-full '>
                     <div className='space-y-3'>
-                        <h1 className='text-5xl font-bricolage text-white'>Flora printed shirt</h1>
+                        <h1 className='text-3xl md:text-5xl font-bricolage text-white'>Flora printed shirt</h1>
                         <p className='text-gray-50 text-xl font-semibold flex items-center gap-4'>
                             Rs. 799
                             <span className='text-gray-500 text-base line-through'>Rs. 1200</span>
                         </p>
                     </div>
 
-                    {/* Interactive Color Selection */}
+                    {/* Color Selection */}
                     <div className='flex gap-2 items-center'>
                         {COLORS.map((color) => {
                             const isSelected = selectedColor === color.id
@@ -62,11 +58,11 @@ const Page = () => {
                     {/* Size Buttons */}
                     <div className='space-y-2'>
                         <h1 className='font-medium font-bricolage text-xl tracking-wide'>Size</h1>
-                        <div className='relative flex  flex-wrap md:flex-nowrap gap-5 items-center max-w-xl  rounded-xl p-1 overflow-x-auto  isolation-auto '>
+                        <div className='relative flex  flex-wrap md:flex-nowrap gap-5 items-center max-w-xl  rounded-xl p-1 overflow-x-auto  isolation-auto scrollbar-none'>
 
-                            {/* Animated Sliding Background Ring */}
+
                             <div
-                                className="hidden md:block absolute top-1 bottom-1 left-1 rounded-xl bg-white transition-all duration-300 ease-in-out z-0 "
+                                className="hidden md:block absolute top-1 bottom-1 left-1 rounded-xl bg-white transition-all duration-300  ease-in-out z-0 "
                                 style={{
                                     width: `calc((100% - (${SIZES.length - 1} * 1.25rem) - 0.5rem) / ${SIZES.length})`,
                                     transform: `translateX(calc(${SIZES.indexOf(selectedSize)} * (100% + 1.25rem)))`
@@ -79,7 +75,7 @@ const Page = () => {
                                     <button
                                         key={size}
                                         onClick={() => setSelectedSize(size)}
-                                        className={`relative z-10 py-2 transition-colors duration-300 ease-in-out cursor-pointer  border-2 rounded-xl max-w-20  w-full  font-semibold font-caveat px-4 text-center text-center ${isSelected ? 'bg-white md:bg-transparent text-black' : 'text-white'
+                                        className={`relative z-10 py-2 transition-colors duration-300 ease-in-out cursor-pointer  border-2 rounded-xl max-w-20  w-full  font-semibold font-caveat px-4  text-center overflow-hidden ${isSelected ? 'bg-white md:bg-transparent text-black' : 'text-white'
                                             }`}
                                     >
                                         {size}
@@ -91,16 +87,7 @@ const Page = () => {
 
                     {/* Quantity & Add to Cart Container */}
                     <div className='flex gap-5 items-center max-w-xl w-full'>
-                        <div className='flex items-center gap-5 text-white py-3 px-6 border border-gray-400 rounded-xl font-semibold select-none cursor-pointer'>
-                            <button onClick={decreaseQty} disabled={quantity === 1} className={`${quantity === 1 ? "cursor-not-allowed text-gray-600" : "cursor-pointer"} focus:outline-none ' aria-label='Decrease quantity`}>
-                                <MinusIcon size={15} />
-                            </button>
-                            <span className='w-4 text-center'>{quantity}</span>
-                            <button onClick={increaseQty} disabled={quantity === 10} className={`${quantity === 10 ? "cursor-not-allowed text-gray-600" : "cursor-pointer"} focus:outline-none `} aria-label='Increase quantity'>
-                                <PlusIcon size={15} />
-                            </button>
-                        </div>
-
+                        <QuantityCounter style={"px-3 py-3 rounded-lg"} />
                         {/* Add Button */}
                         <button className='w-full rounded-xl font-semibold font-bricolage bg-white text-black py-3 px-6 flex items-center justify-center  hover:bg-gray-200 transition-colors cursor-pointer'>
                             Add to bag
@@ -118,7 +105,7 @@ const Page = () => {
 
             {/* Brand develering product  */}
 
-            <div className='flex  md:flex-row flex-col items-center  gap-10 p-10  w-full text-black bg-white'>
+            <div className='flex  md:flex-row flex-col items-center  gap-10 py-5 md:p-15  w-full text-black bg-white'>
                 <div className='font-caveat text-center'>
                     {/* Icon */}
                     <CiDeliveryTruck size={50} className='justify-center mx-auto' />
