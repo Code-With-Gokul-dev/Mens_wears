@@ -1,6 +1,6 @@
 "use client"
 import InputComponent from '@/app/Component/InputComponent';
-import { UserPlus, UserPlus2 } from 'lucide-react';
+import { ChevronLeft, UserPlus2 , } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -21,23 +21,24 @@ const Page = () => {
     <main>
       <section className='grid md:grid-cols-2  min-h-[calc(100vh-5rem)] border-b border-gray-400'>
         {/* Login page left side bg  */}
-        <div className='bg-red-400 hidden relative md:block py-10'>
-          <div className='flex items-center justify-center'>
-            <h1 className='font-bricolage font-semibold text-4xl text-gray-100'>X wears</h1>
+        <div className='bg-pink-700 hidden relative md:block py-10'>
+          {/* back btn */}
+          <div className='flex items-center group/back px-5 text-4xl'>
+            <ChevronLeft size={50} className='group-hover/back:-translate-x-2 transition-transform duration-300 ease-in-out' /> <Link href='/' className='font-bricolage font-semibold  text-gray-100'>X wears</Link>
           </div>
 
-          <div className='absolute xl:top-[calc(50vh-5rem)] w-80 px-3 py-5 rounded-e-2xl mx-4'>
-            <h2 className='text-white font-bold font-bricolage text-lg xl:text-4xl leading-relaxed text-wrap '>Make Your Oufit Look&apos;s <span className='text-purple-700 rounded-full bg-white px-2 py-0.5' >Premium</span></h2>
+          <div className='absolute xl:top-[calc(40vh-5rem)] z-55 w-100 px-3 py-5 rounded-e-2xl mx-4'>
+            <h2 className='text-white font-bold font-bricolage text-lg xl:text-6xl leading-relaxed text-wrap '>Make Your Oufit Look&apos;s <span className='text-purple-700 rounded-full bg-white px-2 py-1' >Premium</span></h2>
           </div>
 
           {/* svg and bg image overlay */}
           <div className='absolute bg-black/50 rounded-full  xl:bottom-[40%] translate-y-50 xl:left-[45%] w-100  h-100  mx-auto '>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 47.05 25.78 C 49.40 30.53 47.72 36.25 42.86 39.91 C 37.99 43.57 31.13 42.87 26.17 42.62 C 21.21 42.36 15.58 43.00 12.77 39.38 C 9.95 35.75 8.78 32.27 7.36 27.50 C 5.94 23.39 8.80 20.56 9.22 15.01 C 9.64 9.46 9.10 4.22 16.64 1.44 C 24.17 -1.34 32.55 3.31 37.94 8.05 C 43.33 12.79 44.70 21.02 47.05 25.78 Z" className='fill-blue-400'></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 47.05 25.78 C 49.40 30.53 47.72 36.25 42.86 39.91 C 37.99 43.57 31.13 42.87 26.17 42.62 C 21.21 42.36 15.58 43.00 12.77 39.38 C 9.95 35.75 8.78 32.27 7.36 27.50 C 5.94 23.39 8.80 20.56 9.22 15.01 C 9.64 9.46 9.10 4.22 16.64 1.44 C 24.17 -1.34 32.55 3.31 37.94 8.05 C 43.33 12.79 44.70 21.02 47.05 25.78 Z" className='fill-gree-400'></path>
             </svg>
             {/* bg image */}
             <div className='absolute bottom-[16%] z-22 left[50%]'>
               <div className='relative w-100 h-120'>
-                <Image loading='eager'  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
+                <Image loading='eager' sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
               </div>
             </div>
 
@@ -113,7 +114,7 @@ const Page = () => {
               <button
                 type="submit"
                 disabled={!isValid}
-                className="w-full rounded cursor-pointer bg-red-400/80 px-3 py-2.5 text-sm font-bricolage font-semibold text-black shadow-sm transition-all hover:bg-red-400 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white disabled:bg-neutral-300 disabled:text-neutral-900 disabled:cursor-not-allowed"
+                className="w-full rounded cursor-pointer bg-pink-600/80 px-3 py-2.5 text-sm font-bricolage font-semibold text-black shadow-sm transition-all hover:bg-pink-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white disabled:bg-neutral-300 disabled:text-neutral-900 disabled:cursor-not-allowed"
               >
                 Sign In
               </button>
