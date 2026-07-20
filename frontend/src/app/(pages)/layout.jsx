@@ -1,7 +1,7 @@
 import React, { Children } from 'react'
-import Header from '@/app/Component/Header'
-import Footer from '@/app/Component/Footer'
-import SidebarCart from '@/app/Component/Card-component/SidebarCart'
+import Header from '@/Component/Header'
+import Footer from '@/Component/Footer'
+import SidebarCart from '@/Component/Card-component/SidebarCart'
 import { CartProvider } from '../../../context/cartContext'
 
 const layout = ({ children }) => {

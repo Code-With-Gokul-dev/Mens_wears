@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
-import { newArrivals } from '../../../data/Images';
-import { Card } from '@/app/Component/Card-component/Card';
-import Carousel from '@/app/Component/Carousel';
-import { assetsData } from '../../../data/assetsData';
+import { newArrivals } from '../../data/Images';
+import { Card } from '@/Component/Card-component/Card';
+import Carousel from '@/Component/Carousel';
+import { assetsData } from '../../data/assetsData';
 
 export const Main = () => {
 

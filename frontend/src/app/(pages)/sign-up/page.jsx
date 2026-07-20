@@ -1,5 +1,5 @@
 "use client"
-import InputComponent from '@/app/Component/InputComponent'
+import InputComponent from '@/Component/InputComponent'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { BsGithub, BsGoogle } from 'react-icons/bs'

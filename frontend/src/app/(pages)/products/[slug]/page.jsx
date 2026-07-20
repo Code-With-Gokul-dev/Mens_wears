@@ -1,6 +1,6 @@
 'use client'
-import ProductCarousel from '../../../Component/Card-component/ProductCarousel'
-import QuantityCounter from '@/app/Component/QuantityCounter'
+import ProductCarousel from '../../../../Component/Card-component/ProductCarousel'
+import QuantityCounter from '@/Component/QuantityCounter'
 import { BoxIcon, User2Icon } from 'lucide-react'
 import React, { useState } from 'react'
 import { CiDeliveryTruck } from 'react-icons/ci'

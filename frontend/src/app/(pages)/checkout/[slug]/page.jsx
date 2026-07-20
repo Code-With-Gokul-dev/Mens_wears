@@ -1,6 +1,6 @@
 "use client"
-import InputComponent from '@/app/Component/InputComponent'
-import { PaymentInputBox } from '@/app/Component/paymentComponent/PaymentInputBox'
+import InputComponent from '@/Component/InputComponent'
+import { PaymentInputBox } from '@/Component/paymentComponent/PaymentInputBox'
 import Image from 'next/image'
 import React from 'react'
 import { useForm } from 'react-hook-form'

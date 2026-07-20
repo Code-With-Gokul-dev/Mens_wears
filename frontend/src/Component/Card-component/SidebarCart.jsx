@@ -2,16 +2,18 @@
 import { Trash2Icon, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import QuantityCounter from '@/app/Component/QuantityCounter'
-import { useCart } from '../../../../context/cartContext'
+import QuantityCounter from '@/Component/QuantityCounter'
+import { useCart } from '../../../context/cartContext'
 import { useRouter } from 'next/navigation'
 
 const SidebarCart = () => {
     const { isOpen, closeCart } = useCart()
     const router = useRouter()
+
     const checkout = () => {
         router.push(`/checkout/${1}`)
     }
+
     return (
         <aside className={` ${isOpen ? " opacity-100 translate-x-0" : " translate-x-full   "} transform-gpu transition-transform duration-300 ease-in-out fixed top-0 right-0 h-full w-96 bg-white z-200 `}>
             {/* Cart - header */}
