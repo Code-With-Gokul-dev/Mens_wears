@@ -2,8 +2,8 @@
 import { Trash2Icon, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import QuantityCounter from '@/Component/QuantityCounter'
-import { useCart } from '../../../context/cartContext'
+import QuantityCounter from '@/app/Component/QuantityCounter'
+import { useCart } from '../../../../context/cartContext'
 import { useRouter } from 'next/navigation'
 
 const SidebarCart = () => {

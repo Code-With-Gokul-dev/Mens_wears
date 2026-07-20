@@ -1,5 +1,5 @@
 "use client"
-import InputComponent from '@/Component/InputComponent'
+import InputComponent from '@/app/Component/InputComponent'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
@@ -129,7 +129,7 @@ const Page = () => {
                         </div>
 
                         <div className='flex justify-center  gap-5'>
-                            <a href=""  className='rounded-full text-black bg-white flex items-center justify-center p-2  '>
+                            <a href="" className='rounded-full text-black bg-white flex items-center justify-center p-2  '>
                                 <BsGoogle />
                             </a>
                             <a href="" className='rounded-full text-black bg-white flex items-center justify-center p-2  '>

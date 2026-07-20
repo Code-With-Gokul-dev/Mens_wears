@@ -2,7 +2,7 @@
 
 import { Search, ShoppingBag, User2 } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
-import { useCart } from '../../context/cartContext'
+import { useCart } from '../../../context/cartContext'
 
 const BottomBar = () => {
   const [isVisible, setIsVisible] = useState(false)

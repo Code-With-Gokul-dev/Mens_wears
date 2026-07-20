@@ -1,5 +1,5 @@
 "use client"
-import InputComponent from '@/Component/InputComponent';
+import InputComponent from '@/app/Component/InputComponent';
 import { UserPlus, UserPlus2 } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
@@ -30,16 +30,16 @@ const Page = () => {
           </div>
 
           {/* svg and bg image overlay */}
-            <div className='absolute bg-black/50 rounded-full  xl:bottom-[40%] translate-y-50 xl:left-[45%] w-100  h-100  mx-auto '>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 47.05 25.78 C 49.40 30.53 47.72 36.25 42.86 39.91 C 37.99 43.57 31.13 42.87 26.17 42.62 C 21.21 42.36 15.58 43.00 12.77 39.38 C 9.95 35.75 8.78 32.27 7.36 27.50 C 5.94 23.39 8.80 20.56 9.22 15.01 C 9.64 9.46 9.10 4.22 16.64 1.44 C 24.17 -1.34 32.55 3.31 37.94 8.05 C 43.33 12.79 44.70 21.02 47.05 25.78 Z" className='fill-blue-400'></path>
-              </svg>
-              {/* bg image */}
-                  <div className='absolute bottom-[16%] z-22 left[50%]'>
-                     <div className='relative w-100 h-120'>
-                      <Image src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
-                     </div>
-                  </div>
-            
+          <div className='absolute bg-black/50 rounded-full  xl:bottom-[40%] translate-y-50 xl:left-[45%] w-100  h-100  mx-auto '>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 47.05 25.78 C 49.40 30.53 47.72 36.25 42.86 39.91 C 37.99 43.57 31.13 42.87 26.17 42.62 C 21.21 42.36 15.58 43.00 12.77 39.38 C 9.95 35.75 8.78 32.27 7.36 27.50 C 5.94 23.39 8.80 20.56 9.22 15.01 C 9.64 9.46 9.10 4.22 16.64 1.44 C 24.17 -1.34 32.55 3.31 37.94 8.05 C 43.33 12.79 44.70 21.02 47.05 25.78 Z" className='fill-blue-400'></path>
+            </svg>
+            {/* bg image */}
+            <div className='absolute bottom-[16%] z-22 left[50%]'>
+              <div className='relative w-100 h-120'>
+                <Image src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
+              </div>
+            </div>
+
           </div>
         </div>
 
