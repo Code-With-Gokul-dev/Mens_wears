@@ -1,7 +1,7 @@
 'use client';
 import { animate, motion, useMotionValue } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
-import { CarouselData } from '../../data/Images';
+import { CarouselData } from '../../../data/Images';
 import Image from 'next/image';
 
 export default function FramerAutoplayCarousel({ duration = 3000 }) {
@@ -31,7 +31,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
   }, [isHovered, duration]);
   return (
     <div className="w-full lg:px-10 sm:p-4 p-2">
-      
+
       <div className="flex flex-col gap-3">
         <div
           className="relative overflow-hidden rounded-lg"
@@ -56,10 +56,9 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
             disabled={index === 0}
             onClick={() => setIndex((i) => Math.max(0, i - 1))}
             className={`absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
-              ${
-                index === 0
-                  ? 'opacity-40 cursor-not-allowed bg-neutral-300'
-                  : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
+              ${index === 0
+                ? 'opacity-40 cursor-not-allowed bg-neutral-300'
+                : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
             <svg
@@ -81,10 +80,9 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
             disabled={index === CarouselData.length - 1}
             onClick={() => setIndex((i) => Math.min(CarouselData.length - 1, i + 1))}
             className={`absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
-              ${
-                index === CarouselData.length - 1
-                  ? 'opacity-40 cursor-not-allowed bg-neutral-300'
-                  : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
+              ${index === CarouselData.length - 1
+                ? 'opacity-40 cursor-not-allowed bg-neutral-300'
+                : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
             <svg

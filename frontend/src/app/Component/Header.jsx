@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { navLinks } from '../../data/links'
-import {  Menu, Search,  ShoppingCart, User2 } from 'lucide-react'
-import { useCart } from '../../context/cartContext'
+import { navLinks } from '../../../data/links'
+import { Menu, Search, ShoppingCart, User2 } from 'lucide-react'
+import { useCart } from '../../../context/cartContext'
 
 
 
@@ -14,7 +14,7 @@ const Header = () => {
 
     <section className={` bg-black  sticky  transform-gpu transition-all duration-300 w-full ease-in-out top-0 md:py-6 py-3 z-100  md:px-10 flex items-center justify-center md:justify-between overflow-hidden `}>
       <button className='text-white absolute top-5 left-5 md:hidden'>
-       <Menu />
+        <Menu />
       </button>
       {/* Logo */}
       <Link href={"/"} className='flex  items-center group gap-2 text-white'>
@@ -41,15 +41,15 @@ const Header = () => {
       {/* Right Side nav */}
       <nav className='hidden md:flex items-center gap-4'>
         {/* Search Icon */}
-        <div className='icons8-search relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white' >
+        <div className=' relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white' >
           <Search />
         </div>
 
         {/* Profile Icon */}
-        <div className='relative  w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white '>
+        <Link href='/sign-in' className='relative  w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white '>
           <User2 />
 
-        </div>
+        </Link>
 
         {/* Cart Icon  */}
         <button onClick={openCart} className='relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 ease-in-out '>
