@@ -28,7 +28,7 @@ const Page = () => {
                         <h1 className='text-white text-2xl font-bricolage font-semibold'>Sign Up</h1>
                     </div>
 
-                    <form onSubmit={handleSubmit(onsubmit)} className='text-white flex flex-col gap-5 max-w-2xl w-full mx-auto font-bricolage '>
+                    <form onSubmit={handleSubmit(onsubmit)} className='text-white flex flex-col gap-5 max-w-lg w-full mx-auto font-bricolage '>
 
                         {/* Name fields */}
                         <div className='md:flex gap-5 space-y-5 md:space-y-0 w-full'>
@@ -116,7 +116,7 @@ const Page = () => {
                         </button>
                     </form>
                     <div className='flex flex-col gap-5'>
-                        <div className='flex relative items-center gap-2 max-w-2xl mx-auto w-full '>
+                        <div className='flex relative items-center gap-2 max-w-lg mx-auto w-full '>
 
                             <div className='grow w-full bg-gray-400  h-px'>
 
@@ -143,7 +143,7 @@ const Page = () => {
                 </div>
 
                 {/* Image right grid element */}
-                <div className='bg-white md:block hidden'></div>
+                <div className='bg-yellow-400 md:block hidden'></div>
             </section>
         </main>
     )

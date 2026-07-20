@@ -2,6 +2,7 @@
 import InputComponent from '@/app/Component/InputComponent';
 import { UserPlus, UserPlus2 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
@@ -25,8 +26,8 @@ const Page = () => {
             <h1 className='font-bricolage font-semibold text-4xl text-gray-100'>X wears</h1>
           </div>
 
-          <div className='absolute top-[calc(50vh-5rem)] w-80 px-3 py-5 rounded-e-2xl mx-4'>
-            <h2 className='text-white font-bold font-bricolage text-4xl leading-relaxed text-wrap '>Make Your Oufit Look&apos;s <span className='text-purple-700 rounded-full bg-white px-2 py-0.5' >Premium</span></h2>
+          <div className='absolute xl:top-[calc(50vh-5rem)] w-80 px-3 py-5 rounded-e-2xl mx-4'>
+            <h2 className='text-white font-bold font-bricolage text-lg xl:text-4xl leading-relaxed text-wrap '>Make Your Oufit Look&apos;s <span className='text-purple-700 rounded-full bg-white px-2 py-0.5' >Premium</span></h2>
           </div>
 
           {/* svg and bg image overlay */}
@@ -36,7 +37,7 @@ const Page = () => {
             {/* bg image */}
             <div className='absolute bottom-[16%] z-22 left[50%]'>
               <div className='relative w-100 h-120'>
-                <Image src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
+                <Image loading='eager'  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" src={"/bg_img/login_img.png"} alt="login_bg" fill className='object-fill' />
               </div>
             </div>
 
@@ -55,19 +56,19 @@ const Page = () => {
           {/* Create new account navigate link */}
           <div className="absolute top-[20%] right-5 p-2 bg-white border border-slate-100 rounded-full group flex gap-2 items-center transition-all duration-300 ease-in-out shadow-sm max-w-11 hover:max-w-75 overflow-hidden">
 
-            {/* Icon wrapper to prevent shrinking during animation */}
-            <div className="shrink-0 p-1">
+            {/* Icon wrapper  */}
+            <Link href='/sign-up' className="shrink-0 p-1">
               <UserPlus2 className="w-5 h-5 fill-red-400 stroke-black" />
-            </div>
+            </Link>
 
             {/* Text sliding container */}
             <div className="opacity-0 -translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-300 ease-out whitespace-nowrap ">
-              <a
+              <Link
                 href="/sign-up"
                 className="font-bricolage font-semibold text-sm pr-3 text-slate-700 hover:underline underline-offset-4"
               >
                 Don&apos;t have an account?
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -112,7 +113,7 @@ const Page = () => {
               <button
                 type="submit"
                 disabled={!isValid}
-                className="w-full rounded cursor-pointer bg-white px-3 py-2.5 text-sm font-bricolage font-semibold text-black shadow-sm transition-all hover:bg-gray-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white disabled:bg-neutral-300 disabled:text-neutral-900 disabled:cursor-not-allowed"
+                className="w-full rounded cursor-pointer bg-red-400/80 px-3 py-2.5 text-sm font-bricolage font-semibold text-black shadow-sm transition-all hover:bg-red-400 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white disabled:bg-neutral-300 disabled:text-neutral-900 disabled:cursor-not-allowed"
               >
                 Sign In
               </button>
