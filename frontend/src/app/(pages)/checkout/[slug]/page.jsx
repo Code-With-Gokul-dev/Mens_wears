@@ -40,24 +40,24 @@ const Page = () => {
                         <div className='flex items-center gap-5'>
                             {/* First Name Input */}
 
-                            <InputComponent register={register} errors={errors} inputName={'first name'} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={'first name'} />
 
                             {/* Last Name Input */}
-                            <InputComponent register={register} errors={errors} inputName={"last name"} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"last name"} />
                         </div>
 
                         {/* Address Input */}
                         <div className=''>
-                            <InputComponent register={register} errors={errors} inputName={"address"} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"address"} />
                         </div>
                         {/* City , state & postal code  */}
                         <div className='flex gap-5'>
-                            <InputComponent register={register} errors={errors} inputName={"city"} />
-                            <InputComponent register={register} errors={errors} inputName={"state"} />
-                            <InputComponent register={register} errors={errors} inputName={"postal code"} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"city"} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"state"} />
+                            <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"postal code"} />
 
                         </div>
-                        <InputComponent register={register} errors={errors} inputName={"phone-number"} />
+                        <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"phone-number"} />
 
                         {/* Payment method */}
                         <PaymentInputBox register={register} errors={errors} />
@@ -77,24 +77,24 @@ const Page = () => {
                     <div className='text-gray-950 flex overflow-y-scroll overflow-x-hidden scrollbar-thumb-black h-100 bg-white  w-full min-w-xl rounded-t-2xl' >
                         {/* items  */}
                         <ul>
-                           { [2,4].map((h)=>(
-                            <li key={h} className='flex items-center cursor-pointer hover:bg-gray-100 justify-between gap-2  w-full min-w-xl p-4' >
-                                <div className='leading-5 flex items-center gap-5'>
-                                    <div className='w-20 h-20 rounded-md relative overflow-hidden'>
-                                        <Image src={"/assets/asset 110.png"} alt='img' fill /></div>
-                                    <div>
-                                        <p className='text-lg '> white pants </p>
-                                        <span className='text-sm'>purple/M</span>
-                                    </div>
+                            {[2, 5, 6, 4].map((h) => (
+                                <li key={h} className='flex items-center cursor-pointer hover:bg-gray-100 justify-between gap-2 border-b border-gray-200  w-full min-w-xl p-4' >
+                                    <div className='leading-5 flex items-center gap-5'>
+                                        <div className='w-20 h-20 rounded-md relative overflow-hidden'>
+                                            <Image src={"/assets/asset 110.png"} alt='img' fill /></div>
+                                        <div>
+                                            <p className='text-lg font-bricolage font-semibold '> Regular pant </p>
+                                            <span className='text-sm font-caveat'>White/M</span>
+                                        </div>
 
-                                </div>
-                                <p className='text-lg font-semibold font-bricolage '>₹ 999</p>
-                            </li>
+                                    </div>
+                                    <p className='text-lg font-semibold font-bricolage '>₹ 999</p>
+                                </li>
                             ))}
 
                         </ul>
                     </div>
-                    <div className='p-10 sticky top-10 flex bg-amber-300  min-w-xl rounded-b-xl w-full'>
+                    <div className='p-10 sticky top-10 flex bg-gray-900  min-w-xl rounded-b-xl w-full'>
                         <ul className='w-full text-lg font-semibold font-bricolage'>
                             <li className='flex gap-5 justify-between'> <p>subtotal - <span>{2} items </span>  </p> <p>₹ {999}</p></li>
                             <li className='flex gap-5 justify-between' > <p>Shipping fee  </p> <p>Free</p> </li>

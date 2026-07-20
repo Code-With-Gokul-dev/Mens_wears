@@ -4,9 +4,15 @@ import Image from 'next/image'
 import React from 'react'
 import QuantityCounter from '@/Component/QuantityCounter'
 import { useCart } from '../../../context/cartContext'
+import { useRouter } from 'next/navigation'
 
 const SidebarCart = () => {
     const { isOpen, closeCart } = useCart()
+    const router = useRouter()
+
+    const checkout = () => {
+        router.push(`/checkout/${1}`)
+    }
 
     return (
         <aside className={` ${isOpen ? " opacity-100 translate-x-0" : " translate-x-full   "} transform-gpu transition-transform duration-300 ease-in-out fixed top-0 right-0 h-full w-96 bg-white z-200 `}>
@@ -49,7 +55,7 @@ const SidebarCart = () => {
             </ul>
 
 
-            <button className='bg-black absolute bottom-2 left-0 right-0 text-white max-w-xs  mx-auto flex items-center justify-center w-full py-3 px-6  rounded-xl font-bricolage font-medium hover:scale-97 transform-gpu transition-transform ease-in-out duration-300 '>
+            <button onClick={checkout} className='bg-black absolute bottom-2 left-0 right-0 text-white max-w-xs  mx-auto flex items-center justify-center w-full py-3 px-6  rounded-xl font-bricolage font-medium hover:scale-97 transform-gpu transition-transform ease-in-out duration-300 '>
                 Checkout
             </button>
 
