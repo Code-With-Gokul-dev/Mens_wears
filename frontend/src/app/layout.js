@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${caveatSan.variable} ${bricolage.variable} ${bowlyOne.variable} h-full bg-black  antialiased scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent `}
+      className={`${caveatSan.variable} ${bricolage.variable} ${bowlyOne.variable} h-full bg-black  antialiased selection:bg-pink-600 selection:text-white scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent `}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
