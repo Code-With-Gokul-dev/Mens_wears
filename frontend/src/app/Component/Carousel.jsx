@@ -19,7 +19,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
         damping: 30,
       });
     }
-  }, [index]);
+  }, [index, x]);
 
   useEffect(() => {
     if (!isHovered) {
@@ -100,7 +100,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
             </svg>
           </motion.button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bg-black/50 rounded-full p-4 bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
             {CarouselData.map((_, i) => (
               <button
                 key={CarouselData[i]?.id ?? CarouselData[i]?.url ?? `dot-${i}`}

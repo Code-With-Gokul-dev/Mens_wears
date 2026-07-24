@@ -1,0 +1,83 @@
+[
+  {
+    "userId": "usr_9f8d7e6c5b4a",
+    "username": "gokulakrishnan",
+    "email": "agokul110@gmail.com",
+    "passwordHash": "12345678",
+    "profile": {
+      "firstName": "Gokulakrishnan",
+      "lastName": ""
+    },
+    "address": {
+      "streetAddress": "",
+      "area": "Tiruchengode",
+      "city": "Tiruchengode",
+      "district": "Namakkal",
+      "state": "Tamil Nadu",
+      "country": "IN",
+      "pincode": "637304"
+    },
+    "cart": {
+      "items": [
+        {
+          "productId": "prod_456",
+          "title": "Wireless Mouse",
+          "image": "/Carousel/linen-pant.png",
+          "price": 799.0,
+          "currency": "INR",
+          "quantity": 2,
+          "addedAt": "2026-07-24T11:30:00Z"
+        },
+        {
+          "productId": "prod_406",
+          "title": "Wireless Mouse",
+          "image": "/Carousel/linen-pant.png",
+          "price": 799.0,
+          "currency": "INR",
+          "quantity": 2,
+          "addedAt": "2026-07-24T11:30:00Z"
+        }
+      ],
+      "updatedAt": "2026-07-24T11:30:00Z"
+    },
+    "orders": [
+      {
+        "orderId": "ord_123789",
+        "createdAt": "2026-07-20T14:22:00Z",
+        "status": "DELIVERED",
+        "payment": {
+          "method": "UPI",
+          "status": "COMPLETED",
+          "transactionId": "txn_88776655"
+        },
+        "pricing": {
+          "subtotal": 1200.0,
+          "shipping": 50.0,
+          "tax": 216.0,
+          "discount": 100.0,
+          "total": 1366.0,
+          "currency": "INR"
+        },
+        "items": [
+          {
+            "productId": "prod_789",
+            "title": "Ergonomic Keyboard",
+            "price": 1200.0,
+            "quantity": 1
+          }
+        ],
+        "shippingAddress": {
+          "streetAddress": "123 Main Street",
+          "area": "Tiruchengode",
+          "city": "Tiruchengode",
+          "district": "Namakkal",
+          "state": "Tamil Nadu",
+          "country": "IN",
+          "pincode": "637304"
+        }
+      }
+    ],
+    "createdAt": "2026-07-24T11:43:00Z",
+    "updatedAt": "2026-07-24T11:43:00Z"
+  }
+]

@@ -1,19 +1,20 @@
+"use client"
 import React, { Children } from 'react'
 import Header from '@/app/Component/Header'
 import Footer from '@/app/Component/Footer'
 import SidebarCart from '@/app/Component/Card-component/SidebarCart'
-import { CartProvider } from '../../../context/cartContext'
+import ReduxProvider from './ReduxProvider'
 
 const layout = ({ children }) => {
     return (
-        <main>
-            <CartProvider >
+        <>
+            <ReduxProvider>
                 <SidebarCart />
                 <Header />
                 {children}
                 <Footer />
-            </CartProvider>
-        </main>
+            </ReduxProvider>
+        </>
     )
 }
 

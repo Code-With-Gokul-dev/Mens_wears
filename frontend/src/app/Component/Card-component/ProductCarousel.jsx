@@ -2,6 +2,8 @@
 import { animate, motion, useMotionValue } from 'motion/react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
+
+
 export const items = [
    
     {

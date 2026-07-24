@@ -27,7 +27,7 @@ const Footer = () => {
           <div className='font-bricolage text-4xl space-y-2 text-white'>
             <h1>Wears</h1>
             <p className='text-sm text-gray-400 font-sans '>Premium Wears with affordable price</p>
-            <div className='flex  text-lg w-full items-center gap-5 '>
+            <div className='flex  text-lg w-full items-center gap-3 '>
               <Link href="" className='nav_link'><FaFacebook /></Link>
               <Link href="" className='nav_link'><BsYoutube /></Link>
               <Link href="" className='nav_link'><RiInstagramFill /></Link>
