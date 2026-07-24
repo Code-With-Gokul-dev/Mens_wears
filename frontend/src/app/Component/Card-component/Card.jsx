@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { ShoppingBag } from 'lucide-react'
+import { ShoppingBag, ShoppingBagIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 export const Card = ({ image, title, price, offer_price }) => {
@@ -14,8 +14,8 @@ export const Card = ({ image, title, price, offer_price }) => {
 
             <div onClick={handleView} className='md:w-full  xl:w-80 md:h-80 max-w-xl h-46 overflow-hidden relative group hover:scale-105 transition-all ease-in-out duration-300 rounded-xs '>
                 <div className='absolute group/choose group-hover:visible invisible bottom-2 z-10 right-2 bg-white/80 text-gray-900 flex  items-center rounded-full  transform-cpu transition-all duration-300  ease-in-out max-w-10 p-1 hover:max-w-30 overflow-hidden '>
-                 <div className='shrink-0 relative w-8 h-6 '>
-                    <Image src={"/assets/addBag.svg"} alt='Add bag' fill className='object-cover' />
+                 <div className='shrink-0 relative p-1 '>
+                    <ShoppingBagIcon />
                  </div>
                    <div className='opacity-0 whitespace-nowrap group-hover/choose:opacity-100 transition-all -translate-x-4 group-hover/choose:translate-x-0 pr-3 duration-300 ease-in-out'>
                       choose

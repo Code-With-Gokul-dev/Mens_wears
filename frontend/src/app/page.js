@@ -5,18 +5,19 @@ import Footer from '@/app/Component/Footer'
 import Nav from '@/app/Component/Nav'
 import BottomBar from './Component/bottomBar'
 import SidebarCart from '@/app/Component/Card-component/SidebarCart'
-import { CartProvider } from '../../context/cartContext'
+import ReduxProvider from '@/app/(shop)/(pages)/ReduxProvider'
+
 const Page = () => {
    return (
       <section >
-         <CartProvider>
+         <ReduxProvider>
             <Nav />
             <Header />
             <Main />
             <SidebarCart />
             <BottomBar />
             <Footer />
-         </CartProvider>
+         </ReduxProvider>
       </section>
    )
 }

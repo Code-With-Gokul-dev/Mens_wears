@@ -5,9 +5,12 @@ import React from 'react'
 import { navLinks } from '../../../data/links'
 import { Menu, Search, ShoppingCart, User2 } from 'lucide-react'
 import { useCart } from '../../../context/cartContext'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const { openCart } = useCart()
+  const cartItemsCount = useSelector((state) => state.items.value);
+
   return (
 
     <section className={` bg-black  sticky  transform-gpu transition-all duration-300 w-full ease-in-out top-0 md:py-6 py-3 z-100  md:px-10 flex items-center justify-center md:justify-between overflow-hidden `}>
@@ -52,7 +55,7 @@ const Header = () => {
         {/* Cart Icon  */}
         <button onClick={openCart} className='relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 ease-in-out '>
           <div className='absolute -right-2 -top-4 font-semibold rounded-full  text-center px-2 py-1 text-xs text-white   font-caveat'>
-            <p>2</p>
+            <p>{cartItemsCount.length}</p>
           </div>
           <ShoppingCart className='text-white' />
         </button>

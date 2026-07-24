@@ -4,8 +4,13 @@ import { PaymentInputBox } from '@/app/Component/paymentComponent/PaymentInputBo
 import Image from 'next/image'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 
 const Page = () => {
+    // get cart items using store 
+    const orderItem = useSelector((state) => state.items.value);
+
+    // form datas
     const {
         register,
         handleSubmit,
@@ -21,7 +26,7 @@ const Page = () => {
     return (
         <section className='bg-black min-h-screen text-white'>
             {/* Split layout into 2 columns */}
-            <div className='grid grid-cols-2 mx-auto max-w-6xl p-8 gap-8'>
+            <div className='grid grid-cols-2 mx-auto  p-8 gap-8'>
 
                 {/* Column 1: Client Details Form */}
                 <div className='justify-items-center'>
@@ -37,7 +42,7 @@ const Page = () => {
                         </div>
 
                         {/* First Name & Last Name Wrapper */}
-                        <div className='flex items-center gap-5'>
+                        <div className='flex items-center justify-between'>
                             {/* First Name Input */}
 
                             <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={'first name'} />
@@ -74,23 +79,25 @@ const Page = () => {
 
                 {/* Column 2: Empty Space / Preview */}
                 <div className='border-l border-gray-800 p-6'>
-                    <div className='text-gray-950 flex overflow-y-scroll overflow-x-hidden scrollbar-thumb-black h-100 bg-white  w-full min-w-xl rounded-t-2xl' >
+                    <div className='text-gray-950  overflow-y-scroll overflow-x-hidden scrollbar-thumb-black h-100 bg-white  w-full  rounded-t-2xl' >
                         {/* items  */}
                         <ul>
-                            {[2, 5, 6, 4].map((h) => (
-                                <li key={h} className='flex items-center cursor-pointer hover:bg-gray-100 justify-between gap-2 border-b border-gray-200  w-full min-w-xl p-4' >
-                                    <div className='leading-5 flex items-center gap-5'>
-                                        <div className='w-20 h-20 rounded-md relative overflow-hidden'>
-                                            <Image src={"/assets/asset 110.png"} alt='img' fill /></div>
-                                        <div>
-                                            <p className='text-lg font-bricolage font-semibold '> Regular pant </p>
-                                            <span className='text-sm font-caveat'>White/M</span>
-                                        </div>
+                            {
+                                orderItem.length > 0 ? (orderItem.map((h) => (
+                                    <li key={h.productId} className='flex items-center cursor-pointer hover:bg-gray-100 justify-between gap-2 border-b border-gray-200  w-full p-4' >
+                                        <div className='leading-5 flex items-center gap-5'>
+                                            <div className='w-20 h-20 rounded-md relative overflow-hidden'>
+                                                <Image src={h.image} alt='img' fill sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' /></div>
+                                            <div>
+                                                <p className='text-lg font-bricolage font-semibold '> {h.title} </p>
+                                                <span className='text-sm font-caveat'>White/M</span>
+                                            </div>
 
-                                    </div>
-                                    <p className='text-lg font-semibold font-bricolage '>₹ 999</p>
-                                </li>
-                            ))}
+                                        </div>
+                                        <p className='text-lg font-semibold font-bricolage '>₹ {h.price}</p>
+                                    </li>
+                                ))) : <p className='text-lg font-semibold flex items-center justify-center font-bricolage text-center p-10'>No items in cart</p>
+                            }
 
                         </ul>
                     </div>
@@ -98,7 +105,7 @@ const Page = () => {
                         <ul className='w-full text-lg font-semibold font-bricolage'>
                             <li className='flex gap-5 justify-between'> <p>subtotal - <span>{2} items </span>  </p> <p>₹ {999}</p></li>
                             <li className='flex gap-5 justify-between' > <p>Shipping fee  </p> <p>Free</p> </li>
-                            <li className='flex gap-5 justify-between'> <p>Total - <span>{2} items </span>  </p> <span>₹ {1999}</span></li>
+                            <li className='flex gap-5 justify-between'> <p>Total - <span>{orderItem.length} items </span>  </p> <span>₹ {1999}</span></li>
                         </ul>
 
                     </div>
