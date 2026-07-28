@@ -1,6 +1,6 @@
 "use client"
 import InputComponent from '@/app/Component/InputComponent';
-import { ChevronLeft, UserPlus2 , } from 'lucide-react';
+import { ChevronLeft, UserPlus2, } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -13,8 +13,31 @@ const Page = () => {
     mode: "onChange"
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+
+    const userData = {
+      email: data.email,
+      password: data.password
+    }
+    try {
+      const res = await fetch(`/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(
+          userData
+        )
+      });
+
+      const r = await res.json();
+
+      console.log(r);
+
+    } catch (e) {
+      console.log(e);
+
+    }
   };
 
   return (
@@ -133,13 +156,13 @@ const Page = () => {
 
               <div className='flex justify-center gap-5'>
                 <a href="" className='rounded-full text-black bg-white flex items-center justify-center p-2 group '>
-                  <BsGoogle className='group-hover:fill-pink-600'  />
+                  <BsGoogle className='group-hover:fill-pink-600' />
                 </a>
                 <a href="" className='rounded-full text-black bg-white flex items-center justify-center p-2 group '>
-                  <BsGithub  className='group-hover:fill-pink-600' />
+                  <BsGithub className='group-hover:fill-pink-600' />
                 </a>
                 <a href="" className='rounded-full text-black bg-white flex items-center justify-center p-2 group '>
-                  <FaFacebook className='group-hover:fill-pink-600'  />
+                  <FaFacebook className='group-hover:fill-pink-600' />
                 </a>
               </div>
 

@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
+
+const proxyUrl = process.env.BACKEND_URL
 const nextConfig = {
- 
+
   images: {
     remotePatterns: [
       {
@@ -9,7 +11,16 @@ const nextConfig = {
         pathname: '/liquid-glass/**',
       },
     ],
-  },
+  }, async rewrites() {
+    return {
+      afterFiles: [
+        {
+          source: "/api/:path*",
+          destination: `${proxyUrl}/:path*`
+        }
+      ]
+    }
+  }
 
 };
 
