@@ -1,5 +1,5 @@
 "use client"
-import store from "@/app/features/cartStore/Cartstore"
+import store from "@/app/features/store"
 import { CartProvider } from "../../../../context/cartContext"
 import { Provider } from "react-redux"
 
