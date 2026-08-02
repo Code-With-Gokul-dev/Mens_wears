@@ -12,7 +12,7 @@ const SidebarCart = () => {
     const { isOpen, closeCart } = useCart()
     const router = useRouter()
     // use Store 
-    const cartData = useSelector((state) => state.items.value);
+    const cartData = useSelector((state) => state.auth?.user?.cart?.items);
     const dispatch = useDispatch();
 
     // checkout router 
@@ -32,7 +32,7 @@ const SidebarCart = () => {
             {/* Cart product */}
             <ul className='overflow-y-auto h-150  py-5 px-1 bg-gray-50 scrollbar-thin scrollbar-thumb-black '>
                 {
-                    cartData.map((i) => (
+                    cartData?.map((i) => (
                         <li key={i.productId} className='p-2 border-b border-gray-200 flex gap-5'>
                             <div className='w-22 h-22  relative overflow-hidden rounded-lg'>
                                 <Image src={i.image} alt='' fill className='w-full h-full object-center ' />
@@ -62,7 +62,7 @@ const SidebarCart = () => {
             </ul>
 
             {
-                cartData.length == 0 ?
+                cartData?.length == 0 ?
                     <div className='flex absolute  pointer-events-none bottom-2 left-0 right-0 text-black  items-center justify-center h-full'>
                         <p className='text-lg   font-medium font-bricolage'>Cart is empty</p>
                     </div> :

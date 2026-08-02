@@ -5,7 +5,7 @@ import { useLazyGetMeQuery, useLoginApiMutation } from '@/app/features/baseAPi';
 import { ChevronLeft, UserPlus2, } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { FaFacebook } from 'react-icons/fa';
@@ -15,7 +15,6 @@ import { useRouter } from 'next/navigation';
 const Page = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth?.token);
   const { register, handleSubmit, formState: { errors, isValid } } = useForm({
     mode: "onChange"
   });
@@ -37,37 +36,27 @@ const Page = () => {
     }
     try {
 
-      const userData = await login(processData).unwrap();
-      console.log("Logged in user data:", userData);
+      const loginSuccess = await login(processData).unwrap();
 
-      const token = userData?.token || userData?.accessToken;
+      if (loginSuccess) {
+        // 2. Fetch the "me" API explicitly for user data
+        const meData = await triggerGetMe().unwrap();
 
-      // 1. Dispatch token first so the Redux store has it
-      dispatch(setCredentials({
-        token: token,
-        user: null,
-      }));
+        const actualUser = meData?.user || meData?.data || meData;
 
-      // 2. Fetch the "me" API explicitly for user data
-      const meData = await triggerGetMe().unwrap();
-      console.log("Fetched me API data:", meData);
+        // 3. Dispatch again with both token and the newly fetched user data
+        dispatch(setCredentials({
+          user: actualUser,
+        }));
 
-      const actualUser = meData?.user || meData?.data || meData;
-
-      // 3. Dispatch again with both token and the newly fetched user data
-      dispatch(setCredentials({
-        token: token,
-        user: actualUser,
-      }));
-
-      // 4. Redirect after everything is successfully loaded
-      router.push("/");
+        // 4. Redirect after everything is successfully loaded
+        router.push("/");
+      }
     } catch (e) {
       console.log("Login sequence failed:", e);
     }
   };
 
-  console.log(user);
 
   return (
     <main>

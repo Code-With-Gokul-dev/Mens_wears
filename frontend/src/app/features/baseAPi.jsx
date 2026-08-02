@@ -41,6 +41,7 @@ export const baseApi = createApi({
             providesTags: ["User"]
 
         }),
+
     }),
 });
 
@@ -49,5 +50,6 @@ export const baseApi = createApi({
 export const {
     useLoginApiMutation,
     useRegisterUserMutation,
-    useLazyGetMeQuery
+    useLazyGetMeQuery,
+    useGetMeQuery
 } = baseApi;

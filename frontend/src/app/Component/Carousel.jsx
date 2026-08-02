@@ -42,11 +42,12 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
           <motion.div className="flex" style={{ x }}>
             {CarouselData.map((item) => (
               <div key={item.id} className="shrink-0 w-full h-150 relative">
-                <Image fill
+                <Image fill loading='eager'
                   src={item.url}
                   alt={item.title || "img"}
                   className="w-full h-full  rounded-lg select-none pointer-events-none"
                   draggable={false}
+                  sizes=''
                 />
               </div>
             ))}

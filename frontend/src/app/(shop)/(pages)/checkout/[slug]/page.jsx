@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux'
 const Page = () => {
     // get cart items using store 
     const orderItem = useSelector((state) => state.items.value);
+    const userAddress = useSelector((state) => state.auth?.user?.address);
+    console.log(userAddress);
 
     // form datas
     const {
@@ -64,6 +66,16 @@ const Page = () => {
                         </div>
                         <InputComponent style={'p-2 w-full outline-none border-b-2 border-gray-600 '} register={register} errors={errors} inputName={"phone-number"} />
 
+                        {/* Address aldready have */}
+
+                        {userAddress && userAddress !== "undefined" ? (
+                            <label className='flex items-center text-white gap-2'>
+                                <input type='radio' name='address' />
+                                {userAddress?.streetAddress}
+                                {userAddress?.area}, {userAddress?.city}, {userAddress?.state}, {userAddress?.pincode}
+                            </label>
+                        ) : null}
+
                         {/* Payment method */}
                         <PaymentInputBox register={register} errors={errors} />
                         {/* Submit Button */}
@@ -111,7 +123,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

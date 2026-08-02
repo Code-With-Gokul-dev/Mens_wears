@@ -4,11 +4,11 @@ import cart from "../../../../data/loginData.json"
 const cartData = cart[0].cart.items;
 const cartSlice = createSlice({
     name: "items",
-    initialState: {value: cartData},
+    initialState: { value: cartData },
     reducers: {
         handleDelete(state, action) {
-            state.value= state.value.filter((item) => item.productId !== action.payload);
-            
+            state.value = state.value.filter((item) => item.productId !== action.payload);
+
         }
     }
 })
