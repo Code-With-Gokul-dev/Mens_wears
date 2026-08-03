@@ -38,21 +38,24 @@ const Page = () => {
     try {
 
       const loginSuccess = await login(processData).unwrap();
-
+      
       if (loginSuccess) {
         // 2. Fetch the "me" API explicitly for user data
-        const meData = await triggerGetMe().unwrap();
+        try {
+          const meData = await triggerGetMe().unwrap();
+          const actualUser = meData?.user || meData?.data || meData;
 
-        const actualUser = meData?.user || meData?.data || meData;
+          // 3. Dispatch again with both token and the newly fetched user data
+          dispatch(setCredentials({
+            user: actualUser,
+          }));
 
-        // 3. Dispatch again with both token and the newly fetched user data
-        dispatch(setCredentials({
-          user: actualUser,
-        }));
-
-        Notify("login successfull", "success")
-        // 4. Redirect after everything is successfully loaded
-        router.push("/");
+          Notify("login successfull", "success")
+          // 4. Redirect after everything is successfully loaded
+          router.push("/");
+        } catch (e) {
+          Notify("Failed to fetch user data", "error");
+        }
       }
     } catch (e) {
       Notify("Login failed", "error");
