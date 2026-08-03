@@ -15,7 +15,7 @@ const Page = () => {
         const logoutUser = await logout().unwrap();
         if (logoutUser) {
             dispatch(logOut()) // specifically clears auth state
-            navigate.push("/")
+            navigate.replace("/")
             Notify("logout successfully", "success")
         }
     }
