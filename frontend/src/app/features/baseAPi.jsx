@@ -42,7 +42,8 @@ export const baseApi = createApi({
                 url: "/logout",
                 method: "POST",
                 credentials: "include"
-            })
+            }),
+            invalidatesTags: ["User", "Cart"]
         })
     }),
 });

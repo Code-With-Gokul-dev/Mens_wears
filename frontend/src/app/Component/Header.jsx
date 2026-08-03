@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { navLinks } from '../../../data/links'
 import { Menu, Search, ShoppingCart, User2 } from 'lucide-react'
 import { useCart } from '../../../context/cartContext'
@@ -10,8 +10,7 @@ import { useSelector } from 'react-redux'
 const Header = () => {
   const { openCart } = useCart()
   const cartItemsCount = useSelector((state) => state.auth?.user?.cart?.items);
-  const User = useSelector((state) => state.auth.user);
-
+  const user = useSelector((state) => state.auth.user);
 
   return (
 
@@ -50,14 +49,14 @@ const Header = () => {
 
         {/* Profile Icon */}
         {
-          User == null ?
+          user == null ?
             <Link href='/sign-in' className='relative  w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white '>
               <User2 />
 
             </Link> :
             <Link href='/profile' className='relative  w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white '>
               <div className='bg-white rounded-full flex items-center justify-center text-black font-semibold font-bricolage w-full h-full'>
-                <h1>{(User?.username?.[0] || User?.email?.[0] || 'U').toUpperCase()}</h1>
+                <h1>{(user?.username?.[0] || user?.email?.[0] || 'U').toUpperCase()}</h1>
               </div>
 
             </Link>

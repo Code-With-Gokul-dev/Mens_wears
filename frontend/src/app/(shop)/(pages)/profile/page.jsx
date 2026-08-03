@@ -1,7 +1,7 @@
 "use client"
 import Notify from '@/app/Component/alert';
 import { setCredentials, logOut } from '@/app/features/authStore/authServices';
-import { useLogoutMutation } from '@/app/features/baseAPi'
+import { useLogoutMutation, baseApi } from '@/app/features/baseAPi'
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,8 @@ const Page = () => {
         const logoutUser = await logout().unwrap();
         if (logoutUser) {
             dispatch(logOut()) // specifically clears auth state
-            navigate.push("/")
+            dispatch(baseApi.util.resetApiState()) // completely clears RTK Query cache
+            navigate.replace("/")
             Notify("logout successfully", "success")
         }
     }
