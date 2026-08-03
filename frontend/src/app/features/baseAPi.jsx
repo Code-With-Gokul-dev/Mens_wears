@@ -22,6 +22,7 @@ export const baseApi = createApi({
             }),
             invalidatesTags: ["User", "Cart"],
         }),
+        // register the new user
         registerUser: builder.mutation({
             query: (userData) => ({
                 url: "/register",
@@ -29,11 +30,13 @@ export const baseApi = createApi({
                 body: userData,
             }),
         }),
+        // get user data after login
         getMe: builder.query({
             query: () => "/me",
             providesTags: ["User"]
 
         }),
+        // logout user 
         logout: builder.mutation({
             query: () => ({
                 url: "/logout",
