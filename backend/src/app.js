@@ -1,9 +1,9 @@
 import express from "express"
-import login from "./routes/login.route.js";
 import base from "./routes/base.route.js";
 import cors from "cors"
 import cookieParser from "cookie-parser";
-import { me } from "./routes/me.route.js";
+import register from "./routes/register.route.js";
+import authRoutes from "./routes/auth.route.js";
 
 // Initialize the express server
 const app = express();
@@ -28,8 +28,8 @@ app.use(cors({
 }))
 
 
-app.use("/login", login);
+app.use("/", authRoutes);
 app.use("/", base);
-app.use("/me", me);
+app.use("/register", register)
 
 export default app;

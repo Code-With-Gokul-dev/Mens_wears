@@ -6,6 +6,7 @@ dns.setServers(["1.1.1.1"]);
 
 const dbConnection = async () => {
     try {
+
         const conn = await mongoose.connect(process.env.DB_CONNECTION_STRING, {
             dbName: "user"
         });
