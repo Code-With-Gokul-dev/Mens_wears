@@ -12,6 +12,7 @@ const AuthLoader = ({ children }) => {
         if (meData) {
             const actualUser = meData?.user || meData?.data || meData;
             dispatch(setCredentials({ user: actualUser }));
+        
         }
         if (error) {
             dispatch(logOut());

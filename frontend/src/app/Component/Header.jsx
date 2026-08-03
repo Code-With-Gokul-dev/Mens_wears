@@ -11,8 +11,7 @@ const Header = () => {
   const { openCart } = useCart()
   const cartItemsCount = useSelector((state) => state.auth?.user?.cart?.items);
   const User = useSelector((state) => state.auth.user);
-  console.log(User);
-  
+
 
   return (
 
@@ -57,8 +56,8 @@ const Header = () => {
 
             </Link> :
             <Link href='/profile' className='relative  w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 eas-in-out text-white '>
-              <div className='bg-white rounded-full text-center text-black font-semibold font-bricolage w-full h-full'>
-                <h1>{User.username[0]}</h1>
+              <div className='bg-white rounded-full flex items-center justify-center text-black font-semibold font-bricolage w-full h-full'>
+                <h1>{(User?.username?.[0] || User?.email?.[0] || 'U').toUpperCase()}</h1>
               </div>
 
             </Link>
@@ -67,12 +66,15 @@ const Header = () => {
         {/* Cart Icon  */}
         <button onClick={openCart} className='relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 ease-in-out '>
           <div className='absolute -right-2 -top-4 font-semibold rounded-full  text-center px-2 py-1 text-xs text-white   font-caveat'>
-            <p>{cartItemsCount.length}</p>
+            {
+              cartItemsCount !== null && cartItemsCount?.length > 0
+              && (<p> {cartItemsCount.length}</p>)
+            }
           </div>
           <ShoppingCart className='text-white' />
         </button>
       </nav>
-    </section>
+    </section >
   )
 }
 

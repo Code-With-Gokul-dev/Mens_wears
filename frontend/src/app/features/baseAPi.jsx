@@ -6,14 +6,7 @@ export const baseApi = createApi({
     reducerPath: "baseApi",
     baseQuery: fetchBaseQuery({
         baseUrl: backendUrl,
-        prepareHeaders: (headers, { getState }) => {
-            const token = getState().auth?.token
-            if (token) {
-                headers.set("authorization", `Bearer ${token}`)
-            }
-            headers.set('Content-Type', 'application/json')
-            return headers
-        },
+        credentials: "include"
     }),
 
     // Tags for caching
@@ -41,7 +34,13 @@ export const baseApi = createApi({
             providesTags: ["User"]
 
         }),
-
+        logout: builder.mutation({
+            query: () => ({
+                url: "/logout",
+                method: "POST",
+                credentials: "include"
+            })
+        })
     }),
 });
 
@@ -51,5 +50,6 @@ export const {
     useLoginApiMutation,
     useRegisterUserMutation,
     useLazyGetMeQuery,
-    useGetMeQuery
+    useGetMeQuery,
+    useLogoutMutation
 } = baseApi;

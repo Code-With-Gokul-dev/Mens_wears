@@ -1,26 +1,69 @@
 "use client"
 import InputComponent from '@/app/Component/InputComponent'
-import { ChevronLeft, ChevronRight, LogIn } from 'lucide-react'
+import { useLazyGetMeQuery, useRegisterUserMutation } from '@/app/features/baseAPi'
+import { ChevronRight, LogIn } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
 import { FaFacebook } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import Notify from '@/app/Component/alert';
+import { setCredentials } from '@/app/features/authStore/authServices'
 
 const Page = () => {
+    const navigate = useRouter();
+    const dispatch = useDispatch();
+
     const {
         handleSubmit,
         register,
         formState: { errors, isValid }
     } = useForm({ mode: "onChange" })
 
-    const onsubmit = (data) => {
-        console.log(data);
+    const [registerUser, { isLoading, error }] = useRegisterUserMutation();
+    const [getUser, { isLoading: isProfileLoading }] = useLazyGetMeQuery();
+
+
+    const onSubmit = async (data) => {
+
+        const processedData = {
+            email: data.email,
+            password: data.password,
+            username: data.first_name,
+            profile: {
+                first_name: data.first_name,
+                last_name: data.last_name
+            }
+        }
+        try {
+
+            const registerNewUser = await registerUser(processedData).unwrap();
+
+            if (registerNewUser) {
+                const me = await getUser().unwrap();
+                const actualUser = me?.user || me?.data || me;
+
+                // 3. Dispatch again with both token and the newly fetched user data
+                dispatch(setCredentials({
+                    user: actualUser,
+                }));
+
+
+            }
+            // 4. Redirect after everything is successfully loaded
+            Notify("Register successfull", "success")
+            navigate.push("/")
+
+        } catch (e) {
+            Notify("Registration failed. Please try again.", "error");
+        }
     }
 
-   
-    
+
+
 
 
     return (
@@ -50,7 +93,7 @@ const Page = () => {
 
 
                     {/* user form */}
-                    <form onSubmit={handleSubmit(onsubmit)} className='text-white flex flex-col gap-5 max-w-lg w-full mx-auto font-bricolage '>
+                    <form onSubmit={handleSubmit(onSubmit)} className='text-white flex flex-col gap-5 max-w-lg w-full mx-auto font-bricolage '>
 
                         {/* Name fields */}
                         <div className='md:flex gap-5 space-y-5 md:space-y-0 w-full'>
@@ -134,7 +177,9 @@ const Page = () => {
                             disabled={!isValid}
                             className='text-black bg-pink-600 cursor-pointer p-2 rounded font-semibold disabled:bg-pink-500  disabled:cursor-not-allowed transition-opacity'
                         >
-                            Sign up
+                            {
+                                isLoading ? "Sigining..." : "Sign up"
+                            }
                         </button>
                     </form>
                     <div className='flex flex-col gap-5'>
