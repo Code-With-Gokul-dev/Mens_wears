@@ -36,7 +36,7 @@ export const registerUser = async (req, res) => {
         if (addUser) {
             const secretKey = process.env.JWT_SECRET_KEY;
             if (!secretKey) {
-                res.send("Internal configuration error")
+                return res.status(500).json({ message: "Internal configuration error: JWT_SECRET_KEY is missing" });
             }
             const token = jwt.sign({
                 id: addUser._id,
@@ -58,7 +58,7 @@ export const registerUser = async (req, res) => {
         }
 
     } catch (e) {
-        console.error("Registration database error:", e);
-        return res.status(500).json({ message: "Internal server error" });
+        console.error("Registration Error:", e);
+        return res.status(500).json({ message: "Internal server error", error: e.message });
     }
 }
