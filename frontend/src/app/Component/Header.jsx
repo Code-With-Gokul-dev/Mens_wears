@@ -10,8 +10,7 @@ import { useSelector } from 'react-redux'
 const Header = () => {
   const { openCart } = useCart()
   const cartItemsCount = useSelector((state) => state.auth?.user?.cart?.items);
-  const User = useSelector((state) => state.auth.user);
-  const [user, setUser] = useState(User)
+  const user = useSelector((state) => state.auth.user);
 
   return (
 
