@@ -14,8 +14,8 @@ const Page = () => {
     const handleLogout = async () => {
         const logoutUser = await logout().unwrap();
         if (logoutUser) {
-            dispatch(logOut()) // specifically clears auth state
-            dispatch(baseApi.util.resetApiState()) // completely clears RTK Query cache
+            dispatch(logOut())
+            dispatch(baseApi.util.resetApiState())
             navigate.replace("/")
             Notify("logout successfully", "success")
         }
