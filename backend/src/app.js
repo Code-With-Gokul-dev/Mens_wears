@@ -4,6 +4,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser";
 import register from "./routes/register.route.js";
 import authRoutes from "./routes/auth.route.js";
+import { uploadRoute } from "./routes/fileUpload.route.js";
 
 // Initialize the express server
 const app = express();
@@ -30,6 +31,7 @@ app.use(cors({
 
 app.use("/", authRoutes);
 app.use("/", base);
-app.use("/register", register)
+app.use("/register", register);
+app.use("/upload", uploadRoute);
 
 export default app;
