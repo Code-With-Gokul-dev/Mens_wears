@@ -22,7 +22,7 @@ const Page = () => {
 
     return (
         <section className='min-h-screen bg-black text-white'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:px-10 py-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2  md:px-10 py-10'>
                 {/* Product Image Carousel */}
                 <ProductCarousel selectedColor={selectedColor} />
 

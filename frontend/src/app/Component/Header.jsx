@@ -6,6 +6,7 @@ import { navLinks } from '../../../data/links'
 import { Menu, Search, ShoppingCart, User2 } from 'lucide-react'
 import { useCart } from '../../../context/cartContext'
 import { useSelector } from 'react-redux'
+import LogoComponent from './logoComponent'
 
 const Header = () => {
   const { openCart } = useCart()
@@ -19,12 +20,7 @@ const Header = () => {
         <Menu />
       </button>
       {/* Logo */}
-      <Link href={"/"} className='flex  items-center group gap-1 text-white'>
-        <div className='relative w-10 h-10 overflow-hidden group-hover:scale-115 transform-gpu transition-transform duration-300 ease-in-out'>
-          <Image src={'/logo/logo-main-1.png'} loading='eager' alt='Brand_logo' fill sizes='50' />
-        </div>
-        <h1 className=' font-bricolage  tracking-widest text-4xl  transform-gpu transition-transform duration-300 ease-in-out '>Wears</h1>
-      </Link>
+      <LogoComponent navLink="/" />
       {/* Middle Nav Links */}
       <div className='hidden lg:flex gap-5 items-center font-bricolage text-md  text-gray-400'>
         {
@@ -64,7 +60,7 @@ const Header = () => {
 
         {/* Cart Icon  */}
         <button onClick={openCart} className='relative w-7 h-7 cursor-pointer hover:scale-115 transition-transform duration-300 ease-in-out '>
-          <div className='absolute -right-2 -top-4 font-semibold rounded-full  text-center px-2 py-1 text-xs text-white   font-caveat'>
+          <div className='absolute -right-2 -top-4 font-semibold rounded-full  text-center px-2 py-1 text-xs text-white   font-caveat bg-red-500'>
             {
               cartItemsCount !== null && cartItemsCount?.length > 0
               && (<p> {cartItemsCount.length}</p>)

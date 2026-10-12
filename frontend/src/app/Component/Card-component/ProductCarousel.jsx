@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 
 export const items = [
-   
+
     {
         id: 2,
         url: '/assets/asset 5.jpeg',
@@ -82,7 +82,7 @@ export default function FramerDraggableCarousel() {
                     <motion.button
                         disabled={index === 0}
                         onClick={() => setIndex((i) => Math.max(0, i - 1))}
-                        className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+                        className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg shadow-black/80 transition-transform z-10 cursor-pointer
               ${index === 0
                                 ? 'opacity-40 cursor-not-allowed'
                                 : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
@@ -106,7 +106,7 @@ export default function FramerDraggableCarousel() {
                     <motion.button
                         disabled={index === items.length - 1}
                         onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
-                        className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+                        className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg shadow-black/80 transition-transform z-10 cursor-pointer
               ${index === items.length - 1
                                 ? 'opacity-40 cursor-not-allowed'
                                 : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
@@ -127,7 +127,7 @@ export default function FramerDraggableCarousel() {
                         </svg>
                     </motion.button>
 
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    <div className="absolute bottom-4 bg-black/80 shadow-inner shadow-white/50 p-2 rounded-full left-1/2 -translate-x-1/2 flex gap-2">
                         {items.map((_, i) => (
                             <button
                                 key={items[i]?.id ?? items[i]?.url ?? `dot-${i}`}

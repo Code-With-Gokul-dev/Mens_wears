@@ -12,7 +12,7 @@ const SidebarCart = () => {
     const { isOpen, closeCart } = useCart()
     const router = useRouter()
     // use Store 
-    const cartData = useSelector((state) => state.auth?.user?.cart?.items);
+    const cartData = useSelector((state) => state.auth?.user?.cart?.items || []);
     const dispatch = useDispatch();
 
     // checkout router 
@@ -62,7 +62,7 @@ const SidebarCart = () => {
             </ul>
 
             {
-                cartData?.length == 0 ?
+                cartData.length == 0 ?
                     <div className='flex absolute  pointer-events-none bottom-2 left-0 right-0 text-black  items-center justify-center h-full'>
                         <p className='text-lg   font-medium font-bricolage'>Cart is empty</p>
                     </div> :

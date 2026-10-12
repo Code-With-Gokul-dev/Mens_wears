@@ -1,14 +1,14 @@
 import React from 'react'
 
-const InputComponent = ({ register, errors, inputName, style, type = 'text' }) => {
+const InputComponent = ({ register, errors, inputName, style, type = 'text', placeholder }) => {
 
     return (
         <div className='flex flex-col'>
-            <div className=' text-black font-caveat font-medium bg-white overflow-hidden'>
+            <div className=' text-black font-caveat font-medium bg-white  overflow-hidden'>
                 <input
                     type={type}
                     className={style}
-                    placeholder={inputName}
+                    placeholder={placeholder}
                     {...register(inputName, { required: `${inputName} is required` })}
                 />
             </div>

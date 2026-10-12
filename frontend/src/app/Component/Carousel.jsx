@@ -41,7 +41,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
         >
           <motion.div className="flex" style={{ x }}>
             {CarouselData.map((item) => (
-              <div key={item.id} className="shrink-0 w-full h-150 relative">
+              <div key={item.id} className="shrink-0 w-full  min-w-7xl h-150  relative">
                 <Image fill loading='eager'
                   src={item.url}
                   alt={item.title || "img"}

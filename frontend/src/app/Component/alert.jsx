@@ -7,7 +7,6 @@ const Notify = (message, type = "blank") => {
         duration: 3000,
         position: 'top-center',
         removeDelay: 1000,
-        className: 'bg-red-500  text-zinc-900  border border-zinc-200  rounded-full shadow-lg font-medium text-sm  tracking-tight ',
         iconTheme: {
             primary: type === "success" ? "#10b981" : type === "error" ? "#ef4444" : "#3b82f6",
             secondary: "#fff",

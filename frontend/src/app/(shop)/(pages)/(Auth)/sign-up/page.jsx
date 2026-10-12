@@ -12,6 +12,7 @@ import { FaFacebook } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import Notify from '@/app/Component/alert';
 import { setCredentials } from '@/app/features/authStore/authServices'
+import { BiLogInCircle } from 'react-icons/bi'
 
 const Page = () => {
     const navigate = useRouter();
@@ -79,7 +80,7 @@ const Page = () => {
                     {/* Sign in page nav link */}
                     <div className="absolute top-[20%] left-10 p-2 bg-white border border-slate-100 rounded-full group flex gap-2 items-center transition-all duration-300 ease-in-out shadow-sm max-w-11 hover:max-w-75 overflow-hidden">
                         <div className="shrink-0 ">
-                            <LogIn className="stroke-pink-500" />
+                            <BiLogInCircle className="fill-pink-500 text-2xl" />
                         </div>
                         <div className="opacity-0 -translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-300 ease-out whitespace-nowrap">
                             <Link
@@ -213,9 +214,9 @@ const Page = () => {
                 <div className='bg-pink-600 md:block hidden relative py-5 px-10'>
                     {/* Back btn */}
 
-                    <Link href="/" className='text-4xl text-white flex justify-end items-center font-bricolage font-semibold group/back '>
+                    <div className='flex justify-end '> <Link href="/" className='text-4xl text-white flex justify-end items-center font-bricolage font-semibold group/back '>
                         X Wears<ChevronRight className='size-8 group-hover/back:translate-x-3 transform-cpu ease-in-out duration-300 transition-transform' />
-                    </Link>
+                    </Link></div>
 
                     {/* Content */}
                     <div className=' w-100 h-50 rounded-md py-15 '>
